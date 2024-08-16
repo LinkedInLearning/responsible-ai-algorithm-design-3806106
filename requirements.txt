@@ -6,3 +6,4 @@ tensorflow
 tensorflow-datasets
 jinja2
 seaborn
+shap
