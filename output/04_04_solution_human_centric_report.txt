@@ -1,0 +1,6 @@
+Human-Centric AI Design Report
+==============================
+Model Accuracy: 0.7319236016371078
+Feature Importances: [0.52042325 0.23377919 0.24579756]
+Class Distribution in Test Set: {'<=50K': 0.7401091405184175, '>50K': 0.2598908594815825}
+Please refer to the decision tree and feature importance visualizations for detailed insights.
