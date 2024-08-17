@@ -1,0 +1,5 @@
+Model Transparency Report
+=========================
+Model Accuracy: 0.7895311540298915
+Feature Importances: [0.59329597 0.40670403]
+See attached SHAP summary plots and local explanations for detailed insights.
