@@ -90,16 +90,3 @@ plt.xlabel('Race')
 plt.ylabel('Accuracy')
 plt.tight_layout()
 plt.savefig('output/02_04_solution_fairness_analysis_by_race.png')
-
-# SHAP analysis to interpret model decisions
-explainer = shap.TreeExplainer(model)
-shap_values = explainer.shap_values(X_test)
-
-# Visualize Feature Importance with SHAP
-shap.summary_plot(shap_values[1], X_test, plot_type="bar", show=False)
-plt.tight_layout()
-plt.savefig('output/02_04_solution_shap_summary.png')
-
-shap.summary_plot(shap_values[1], X_test, show=False)
-plt.tight_layout()
-plt.savefig('output/02_04_solution_shap_beeswarm.png')
