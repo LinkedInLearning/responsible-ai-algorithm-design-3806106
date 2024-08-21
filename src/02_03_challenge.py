@@ -52,7 +52,7 @@ shap_values = explainer.shap_values(X_test_sample)
 if isinstance(shap_values, list):
     shap_values = shap_values[1]
 
-# Step 6: Visualize Feature Importance
+# Visualize Feature Importance
 shap.summary_plot(shap_values, X_test_sample, plot_type="bar", show=False)
 plt.tight_layout()
 plt.savefig('output/02_03_challenge_ai_policy_shap_summary_sampled.png')
