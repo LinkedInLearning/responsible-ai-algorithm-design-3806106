@@ -1,5 +1,6 @@
 Model Transparency Report
 =========================
-Model Accuracy: 0.7895311540298915
-Feature Importances: [0.59329597 0.40670403]
-See attached SHAP summary plots and local explanations for detailed insights.
+Model Accuracy: 0.7769587970811528
+Feature Importances:
+- education-num: 0.5872613771858258
+- hours-per-week: 0.41273862281417417
