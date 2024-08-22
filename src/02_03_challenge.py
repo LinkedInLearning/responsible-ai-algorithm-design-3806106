@@ -56,7 +56,3 @@ if isinstance(shap_values, list):
 shap.summary_plot(shap_values, X_test_sample, plot_type="bar", show=False)
 plt.tight_layout()
 plt.savefig('output/02_03_challenge_ai_policy_shap_summary_sampled.png')
-
-shap.summary_plot(shap_values, X_test_sample, show=False)
-plt.tight_layout()
-plt.savefig('output/02_03_challenge_ai_policy_shap_beeswarm_sampled.png')
