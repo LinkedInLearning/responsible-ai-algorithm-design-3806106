@@ -10,13 +10,22 @@ from sklearn import tree
 adult_data = fetch_openml('adult', version=2, as_frame=True)
 df = adult_data.frame
 
+# Preprocessing Steps:
+# Handling missing values
+df.dropna(inplace=True)
+
+# Encode categorical variables
+df = pd.get_dummies(df, drop_first=True)
+
 # Select features for human-centric AI design
 selected_features = ['age', 'education-num', 'hours-per-week']
 X = df[selected_features]
-y = df['class']
+y = df['class_>50K']
 
 # Use a smaller subset of the dataset to speed up processing
-X_sample, _, y_sample, _ = train_test_split(X, y, test_size=0.9, random_state=42)  # Use only 10% of the data# Split the data into training and testing sets
+X_sample, _, y_sample, _ = train_test_split(X, y, test_size=0.9, random_state=42)  # Use only 10% of the data
+
+# Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X_sample, y_sample, test_size=0.3, random_state=42)
 
 # Train the model with fewer estimators to reduce computation time
@@ -43,7 +52,9 @@ plt.xlabel("Importance")
 plt.ylabel("Feature")
 plt.savefig('output/04_04_solution_feature_importance.png')
 
-# Check for fairness across groups# Here we could add analysis to compare model performance across different demographic groups# For simplicity, let's just print the class distribution in the test set
+# Check for fairness across groups
+# Here we could add analysis to compare model performance across different demographic groups
+# For simplicity, let's just print the class distribution in the test set
 class_distribution = y_test.value_counts(normalize=True)
 print("Class Distribution in Test Set:")
 print(class_distribution)
@@ -56,4 +67,3 @@ with open('output/04_04_solution_human_centric_report.txt', 'w') as report_file:
     report_file.write(f"Feature Importances: {feature_importances}\n")
     report_file.write(f"Class Distribution in Test Set: {class_distribution.to_dict()}\n")
     report_file.write("Please refer to the decision tree and feature importance visualizations for detailed insights.\n")
-
